@@ -114,4 +114,36 @@ console.log(tesla);
 tesla.drive();
 tesla.intro();
 
+// http://api.github.com/users/romebell
+class GithubProfile {
+    constructor(username, name, url) {
+        this.username = username;
+        this.name = name;
+        this.url = url;
+    }
+
+    intro() {
+        console.log(`My name is ${this.name} and my username is @${this.username}`);
+    }
+}
+
+fetch('http://api.github.com/users/ireneyap68')
+.then(response => {
+    return response.json();
+})
+.then(data => {
+    console.log(data);
+    let githubURL = data.url;
+    //console.log(githubURL);   -checked
+    let githubUsername = data.login;
+    //console.log(githubUsername);   -checked
+    let githubName = data.name;
+    //console.log(githubName);  -checked
+
+    // set class
+    let irene = new GithubProfile(githubUsername, githubName, githubURL);
+    console.log(irene);
+
+    irene.intro();
+})
 
