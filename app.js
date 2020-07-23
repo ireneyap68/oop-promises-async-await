@@ -58,13 +58,18 @@ function NBAPlayer(name, team, threePointShooters) {
     this.name = name;
     this.team = team;
     this.threePointShooters = threePointShooters;
+    this.intro = function() {
+        console.log("Hi, my name is " + this.name);
+    }
 
     // return this
 }
 let steph = new NBAPlayer('Steph Curry', 'Warriors', true);
-let lebron = 
+let lebron = new NBAPlayer('Lebron James', 'Lakers', true);
 console.log(steph);
 console.log(steph.name);
+steph.intro();
+lebron.intro();
 
 // make a constructor function
 // Make 3 new variables with that constructor function
@@ -74,6 +79,9 @@ function Car(name, year, originOf) {
     this.name = name;
     this.year = year;
     this.originOf = originOf;
+    this.intro = function() {
+        console.log("Hi, my brand is " + this.name)
+    }
 
     // return this
 }
@@ -82,3 +90,28 @@ let crv =  new Car('honda', 2019, 'Japan');
 console.log(camry);
 console.log(camry.name);
 console.log(crv)
+camry.intro();
+
+// Class -keyword = class
+class Cars {
+    constructor(year, make, model, color) {
+        this.year = year;
+        this.make = make;
+        this.model = model;
+        this.color = color;
+    }
+
+    drive(){    // separate function 
+        console.log('Vroom')
+    }
+    intro() {
+        console.log('This car is a ' + this.make + ' ' + this.model)
+    }
+}
+
+let tesla = new Cars(2020,'Tesla', 'Model S', 'Red');
+console.log(tesla);
+tesla.drive();
+tesla.intro();
+
+
