@@ -115,35 +115,70 @@ tesla.drive();
 tesla.intro();
 
 // http://api.github.com/users/romebell
-class GithubProfile {
-    constructor(username, name, url) {
-        this.username = username;
-        this.name = name;
-        this.url = url;
+// class GithubProfile {
+//     constructor(username, name, url) {
+//         this.username = username;
+//         this.name = name;
+//         this.url = url;
+//     }
+
+//     intro() {
+//         console.log(`My name is ${this.name} and my username is @${this.username}`);
+//     }
+// }
+
+// fetch('http://api.github.com/users/ireneyap68')
+// .then(response => {
+//     return response.json();
+// })
+// .then(data => {
+//     console.log(data);
+//     let githubURL = data.url;
+//     //console.log(githubURL);   -checked
+//     let githubUsername = data.login;
+//     //console.log(githubUsername);   -checked
+//     let githubName = data.name;
+//     //console.log(githubName);  -checked
+
+//     // set class
+//     let irene = new GithubProfile(githubUsername, githubName, githubURL);
+//     console.log(irene);
+
+//     irene.intro();
+// })
+
+//
+var isMomHappy = false;
+
+// Promise
+// var willIGetNewPhone = new Promise(
+//     function (resolve, reject) {
+//         if (isMomHappy) {
+//             var phone = {
+//                 brand: 'Samsung',
+//                 color: 'black'
+//             };
+//             resolve(phone); // fulfilled
+//         } else {
+//             //var reason = new Error('mom is not happy');
+//             reject('Mom is not happy'); // reject
+//         }
+
+//     }
+// );
+
+let willIGetNewPhone = new Promise((resolve, reject) => {
+    if (isMomHappy) {
+        const phone = {
+            brand: 'iPhone',
+            color: 'red'
+        }
+        resolve(phone);
+    } else {
+        reject('No Phone');
     }
-
-    intro() {
-        console.log(`My name is ${this.name} and my username is @${this.username}`);
-    }
-}
-
-fetch('http://api.github.com/users/ireneyap68')
-.then(response => {
-    return response.json();
 })
-.then(data => {
-    console.log(data);
-    let githubURL = data.url;
-    //console.log(githubURL);   -checked
-    let githubUsername = data.login;
-    //console.log(githubUsername);   -checked
-    let githubName = data.name;
-    //console.log(githubName);  -checked
-
-    // set class
-    let irene = new GithubProfile(githubUsername, githubName, githubURL);
-    console.log(irene);
-
-    irene.intro();
+console.log(willIGetNewPhone)
+willIGetNewPhone.then(result => {
+    console.log(result);
 })
-
